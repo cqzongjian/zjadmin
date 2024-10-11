@@ -2,38 +2,38 @@ package com.mdd.common.entity.article;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 import java.io.Serializable;
 
 @Data
-@ApiModel("文章实体类")
+@Schema(description = "文章实体类")
 public class ArticleCollect implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @TableId(value="id", type= IdType.AUTO)
-    @ApiModelProperty("ID")
+    @Schema(description="ID")
     private Integer id;
 
-    @ApiModelProperty("用户ID")
+    @Schema(description="用户ID")
     private Integer userId;
 
-    @ApiModelProperty("文章ID")
+    @Schema(description="文章ID")
     private Integer articleId;
 
-    @ApiModelProperty("是否删除")
+    @Schema(description="是否删除")
     private Integer isDelete;
 
-    @ApiModelProperty("创建时间")
+    @Schema(description="创建时间")
     private Long createTime;
 
-    @ApiModelProperty("更新时间")
+    @Schema(description="更新时间")
     private Long updateTime;
 
-    @ApiModelProperty("删除时间")
+    @Schema(description="删除时间")
     private Long deleteTime;
 
 }

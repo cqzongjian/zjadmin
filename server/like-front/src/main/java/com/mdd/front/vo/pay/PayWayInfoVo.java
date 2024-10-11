@@ -1,27 +1,27 @@
 package com.mdd.front.vo.pay;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 import java.io.Serializable;
 
 @Data
-@ApiModel(value = "支付方式信息Vo")
+@Schema(description = "支付方式信息Vo")
 public class PayWayInfoVo implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @ApiModelProperty(value = "ID")
+    @Schema(description="ID")
     private Integer id;
 
-    @ApiModelProperty(value = "名称")
+    @Schema(description="名称")
     private String name;
 
-    @ApiModelProperty(value = "图标")
+    @Schema(description="图标")
     private String icon;
 
-    @ApiModelProperty(value = "是否默认: [0=否, 1=是]")
+    @Schema(description="是否默认: [0=否, 1=是]")
     private Integer isDefault;
 
 }

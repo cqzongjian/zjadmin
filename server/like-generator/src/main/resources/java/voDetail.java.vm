@@ -1,7 +1,7 @@
 package ${packageName}.admin.vo;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -15,7 +15,7 @@ import java.util.Date;
 #end
 
 @Data
-@ApiModel("${functionName}详情Vo")
+@Schema(description = "${functionName}详情Vo")
 public class ${EntityName}DetailVo implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -23,10 +23,10 @@ public class ${EntityName}DetailVo implements Serializable {
 #foreach ($column in $columns)
 #if($column.isEdit==1 || $column.isPk==1)
     #if($dateFields.contains($column.columnName))
-    @ApiModelProperty(value = "${column.columnComment}")
+    @Schema(description="${column.columnComment}")
     private String ${column.javaField};
     #else
-    @ApiModelProperty(value = "${column.columnComment}")
+    @Schema(description="${column.columnComment}")
     private ${column.javaType} ${column.javaField};
     #end
 

@@ -17,8 +17,8 @@ import com.mdd.front.service.IPayService;
 import com.mdd.front.validate.PaymentValidate;
 import com.mdd.front.vo.pay.PayStatusVo;
 import com.mdd.front.vo.pay.PayWayListVo;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.util.Assert;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -29,7 +29,7 @@ import javax.validation.constraints.NotNull;
 
 @RestController
 @RequestMapping("/api/pay")
-@Api(tags = "支付管理")
+@Tag(name = "支付管理")
 public class PayController {
 
     @Resource
@@ -39,7 +39,7 @@ public class PayController {
     IPayService iPayService;
 
     @GetMapping("/payWay")
-    @ApiOperation("支付方式")
+    @Operation(summary="支付方式")
     public AjaxResult<PayWayListVo> payWay(@Validated @NotNull(message = "from参数丢失") @RequestParam String from,
                                            @Validated @NotNull(message = "orderId参数丢失") @RequestParam Integer orderId) {
         Integer terminal = LikeFrontThreadLocal.getTerminal();
@@ -49,7 +49,7 @@ public class PayController {
     }
 
     @GetMapping("/payStatus")
-    @ApiOperation(("支付状态"))
+    @Operation(summary="支付状态")
     public AjaxResult<PayStatusVo> payStatus(@Validated @NotNull(message = "from参数丢失") @RequestParam String from,
                                              @Validated @NotNull(message = "orderId参数丢失") @RequestParam Integer orderId) {
         PayStatusVo vo = iPayService.payStatus(from, orderId);
@@ -57,7 +57,7 @@ public class PayController {
     }
 
     @PostMapping("/prepay")
-    @ApiOperation("发起支付")
+    @Operation(summary="发起支付")
     public AjaxResult<Object> prepay(@Validated @RequestBody PaymentValidate requestObj) {
         // 接收参数
         String scene     = requestObj.getScene();
@@ -100,7 +100,7 @@ public class PayController {
 
     @NotLogin
     @PostMapping("/notifyMnp")
-    @ApiOperation("微信支付回调")
+    @Operation(summary="微信支付回调")
     public AjaxResult<Object> notifyMnp(@RequestBody String jsonData, HttpServletRequest request) throws WxPayException {
         // 构建签名
         SignatureHeader signatureHeader = new SignatureHeader();

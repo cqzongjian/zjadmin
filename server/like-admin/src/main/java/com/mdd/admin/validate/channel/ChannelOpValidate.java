@@ -1,21 +1,21 @@
 package com.mdd.admin.validate.channel;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 import java.io.Serializable;
 
 @Data
-@ApiModel("开发平台渠道参数")
+@Schema(description = "开发平台渠道参数")
 public class ChannelOpValidate implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @ApiModelProperty(value = "appId")
+    @Schema(description="appId")
     private String appId;
 
-    @ApiModelProperty(value = "appSecret")
+    @Schema(description="appSecret")
     private String appSecret;
 
 }

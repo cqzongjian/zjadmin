@@ -7,8 +7,8 @@ import com.mdd.front.LikeFrontThreadLocal;
 import com.mdd.front.service.IPcService;
 import com.mdd.front.vo.article.PcArticleCenterVo;
 import com.mdd.front.vo.article.PcArticleDetailVo;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,7 +21,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/pc")
-@Api(tags = "电脑管理")
+@Tag(name = "电脑管理")
 public class PcController {
 
     @Resource
@@ -29,7 +29,7 @@ public class PcController {
 
     @NotLogin
     @GetMapping("/index")
-    @ApiOperation(value="主页数据")
+    @Operation(summary="主页数据")
     public AjaxResult<Map<String,Object>> index() {
         Map<String, Object> index = iPcService.index();
         return AjaxResult.success(index);
@@ -37,7 +37,7 @@ public class PcController {
 
     @NotLogin
     @GetMapping("/getConfig")
-    @ApiOperation(value="公共配置")
+    @Operation(summary="公共配置")
     public AjaxResult<Map<String, Object>> getConfig() {
         Map<String, Object> config = iPcService.getConfig();
         return AjaxResult.success(config);
@@ -45,7 +45,7 @@ public class PcController {
 
     @NotLogin
     @GetMapping("/articleCenter")
-    @ApiOperation(value="资讯中心")
+    @Operation(summary="资讯中心")
     public AjaxResult<List<PcArticleCenterVo>> articleCenter() {
         List<PcArticleCenterVo> list = iPcService.articleCenter();
         return AjaxResult.success(list);
@@ -53,7 +53,7 @@ public class PcController {
 
     @NotLogin
     @GetMapping("/articleDetail")
-    @ApiOperation(value="文章详情")
+    @Operation(summary="文章详情")
     public AjaxResult<PcArticleDetailVo> articleDetail(@Validated @IDMust() @RequestParam("id") Integer id) {
         Integer userId = LikeFrontThreadLocal.getUserId();
 

@@ -2,57 +2,57 @@ package com.mdd.common.entity.log;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 import java.math.BigDecimal;
 
 @Data
-@ApiModel("账户变动实体")
+@Schema(description = "账户变动实体")
 public class LogMoney {
 
     @TableId(value="id", type= IdType.AUTO)
-    @ApiModelProperty("主键")
+    @Schema(description="主键")
     private Integer id;
 
-    @ApiModelProperty("流水号")
+    @Schema(description="流水号")
     private String sn;
 
-    @ApiModelProperty("用户ID")
+    @Schema(description="用户ID")
     private Integer userId;
 
-    @ApiModelProperty("关联ID")
+    @Schema(description="关联ID")
     private Integer sourceId;
 
-    @ApiModelProperty("关联单号")
+    @Schema(description="关联单号")
     private String sourceSn;
 
-    @ApiModelProperty("变动类型")
+    @Schema(description="变动类型")
     private Integer changeType;
 
-    @ApiModelProperty("变动数量")
+    @Schema(description="变动数量")
     private BigDecimal changeAmount;
 
-    @ApiModelProperty("变动后数量")
+    @Schema(description="变动后数量")
     private BigDecimal leftAmount;
 
-    @ApiModelProperty("变动类型: [1=增加, 2=减少]")
+    @Schema(description="变动类型: [1=增加, 2=减少]")
     private Integer action;
 
-    @ApiModelProperty("备注信息")
+    @Schema(description="备注信息")
     private String remark;
 
-    @ApiModelProperty("预留字段")
+    @Schema(description="预留字段")
     private String extra;
 
-    @ApiModelProperty("创建时间")
+    @Schema(description="创建时间")
     private Long createTime;
 
-    @ApiModelProperty("更新时间")
+    @Schema(description="更新时间")
     private Long updateTime;
 
-    @ApiModelProperty("删除时间")
+    @Schema(description="删除时间")
     private Long deleteTime;
 
 }

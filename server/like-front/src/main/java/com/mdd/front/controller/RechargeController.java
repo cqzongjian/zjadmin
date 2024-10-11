@@ -8,8 +8,8 @@ import com.mdd.front.validate.RechargeValidate;
 import com.mdd.front.validate.common.PageValidate;
 import com.mdd.front.vo.RechargeConfigVo;
 import com.mdd.front.vo.RechargeRecordVo;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,14 +18,14 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/recharge")
-@Api(tags = "充值管理")
+@Tag(name = "充值管理")
 public class RechargeController {
 
     @Resource
     IRechargeService iRechargeService;
 
     @GetMapping("/config")
-    @ApiOperation(value = "充值配置")
+    @Operation(summary="充值配置")
     public AjaxResult<Object> config() {
         Integer userId = LikeFrontThreadLocal.getUserId();
 
@@ -34,7 +34,7 @@ public class RechargeController {
     }
 
     @GetMapping("/record")
-    @ApiOperation(value = "充值记录")
+    @Operation(summary="充值记录")
     public AjaxResult<Object> record(@Validated PageValidate pageValidate) {
         Integer userId = LikeFrontThreadLocal.getUserId();
 
@@ -43,7 +43,7 @@ public class RechargeController {
     }
 
     @PostMapping("/placeOrder")
-    @ApiOperation(value = "充值下单")
+    @Operation(summary="充值下单")
     public AjaxResult<Object> placeOrder(@Validated @RequestBody RechargeValidate rechargeValidate) {
         Integer userId = LikeFrontThreadLocal.getUserId();
         Integer terminal = LikeFrontThreadLocal.getTerminal();

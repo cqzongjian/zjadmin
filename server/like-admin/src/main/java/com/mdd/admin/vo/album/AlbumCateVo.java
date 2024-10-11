@@ -1,30 +1,30 @@
 package com.mdd.admin.vo.album;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 import java.io.Serializable;
 
 @Data
-@ApiModel("相册分类Vo")
+@Schema(description = "相册分类Vo")
 public class AlbumCateVo implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @ApiModelProperty(value = "主键")
+    @Schema(description="主键")
     private Integer id;
 
-    @ApiModelProperty(value = "类目父级")
+    @Schema(description="类目父级")
     private Integer pid;
 
-    @ApiModelProperty(value = "类目名称")
+    @Schema(description="类目名称")
     private String name;
 
-    @ApiModelProperty(value = "创建时间")
+    @Schema(description="创建时间")
     private String createTime;
 
-    @ApiModelProperty(value = "更新时间")
+    @Schema(description="更新时间")
     private String updateTime;
 
 }

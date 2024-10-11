@@ -1,6 +1,7 @@
 package com.mdd.front.validate.common;
 
-import io.swagger.annotations.ApiModel;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 import javax.validation.constraints.DecimalMax;
@@ -8,7 +9,7 @@ import javax.validation.constraints.DecimalMin;
 import java.io.Serializable;
 
 @Data
-@ApiModel("分页参数")
+@Schema(description = "分页参数")
 public class PageValidate implements Serializable {
 
     private static final long serialVersionUID = 1L;

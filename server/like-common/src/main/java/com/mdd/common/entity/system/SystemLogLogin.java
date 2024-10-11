@@ -2,41 +2,41 @@ package com.mdd.common.entity.system;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 import java.io.Serializable;
 
 @Data
-@ApiModel("系统登录日志实体")
+@Schema(description = "系统登录日志实体")
 public class SystemLogLogin implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @TableId(value="id", type= IdType.AUTO)
-    @ApiModelProperty("ID")
+    @Schema(description="ID")
     private Integer id;
 
-    @ApiModelProperty("管理员ID")
+    @Schema(description="管理员ID")
     private Integer adminId;
 
-    @ApiModelProperty("登录账号")
+    @Schema(description="登录账号")
     private String username;
 
-    @ApiModelProperty("登录IP")
+    @Schema(description="登录IP")
     private String ip;
 
-    @ApiModelProperty("操作系统")
+    @Schema(description="操作系统")
     private String os;
 
-    @ApiModelProperty("浏览器")
+    @Schema(description="浏览器")
     private String browser;
 
-    @ApiModelProperty("操作状态: [1=成功, 2=失败]")
+    @Schema(description="操作状态: [1=成功, 2=失败]")
     private Integer status;
 
-    @ApiModelProperty("创建时间")
+    @Schema(description="创建时间")
     private Long createTime;
 
 }

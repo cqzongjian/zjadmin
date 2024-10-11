@@ -1,30 +1,30 @@
 package com.mdd.admin.validate.article;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 import java.io.Serializable;
 
 @Data
-@ApiModel("文章搜索参数")
+@Schema(description = "文章搜索参数")
 public class ArticleSearchValidate implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @ApiModelProperty(value = "文章标题")
+    @Schema(description="文章标题")
     private String title;
 
-    @ApiModelProperty(value = "文章分类")
+    @Schema(description="文章分类")
     private Integer cid;
 
-    @ApiModelProperty(value = "是否显示")
+    @Schema(description="是否显示")
     private Integer isShow;
 
-    @ApiModelProperty(value = "开始时间")
+    @Schema(description="开始时间")
     private String startTime;
 
-    @ApiModelProperty(value = "结束时间")
+    @Schema(description="结束时间")
     private String endTime;
 
 }

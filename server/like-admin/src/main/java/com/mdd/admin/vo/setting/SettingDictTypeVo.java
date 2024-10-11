@@ -1,36 +1,35 @@
 package com.mdd.admin.vo.setting;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 import java.io.Serializable;
 
 @Data
-@ApiModel("字典类型Vo")
+@Schema(description = "字典类型Vo")
 public class SettingDictTypeVo implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @ApiModelProperty(value = "主键")
+    @Schema(description="主键")
     private Integer id;
 
-    @ApiModelProperty(value = "字典名称")
+    @Schema(description="字典名称")
     private String dictName;
 
-    @ApiModelProperty(value = "字典类型")
+    @Schema(description="字典类型")
     private String dictType;
 
-    @ApiModelProperty(value = "字典备注")
+    @Schema(description="字典备注")
     private String dictRemark;
 
-    @ApiModelProperty(value = "字典状态")
+    @Schema(description="字典状态")
     private Integer dictStatus;
 
-    @ApiModelProperty(value = "创建时间")
+    @Schema(description="创建时间")
     private String createTime;
 
-    @ApiModelProperty(value = "更新时间")
+    @Schema(description="更新时间")
     private String updateTime;
 
 }

@@ -1,21 +1,21 @@
 package com.mdd.admin.vo.channel;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 import java.io.Serializable;
 
 @Data
-@ApiModel("开发平台Vo")
+@Schema(description = "开发平台Vo")
 public class ChannelOpVo implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @ApiModelProperty(value = "appId")
+    @Schema(description="appId")
     private String appId;
 
-    @ApiModelProperty(value = "appSecret")
+    @Schema(description="appSecret")
     private String appSecret;
 
 }

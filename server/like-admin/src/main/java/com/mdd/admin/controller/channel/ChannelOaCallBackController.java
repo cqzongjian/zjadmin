@@ -2,8 +2,8 @@ package com.mdd.admin.controller.channel;
 
 import com.mdd.admin.service.IChannelOaCallBackService;
 import com.mdd.common.aop.NotLogin;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.web.bind.annotation.*;
 
 import jakarta.annotation.Resource;
@@ -11,7 +11,7 @@ import jakarta.annotation.Resource;
 
 @RestController
 @RequestMapping("api/channel/oa/callback")
-@Api(tags = "公众号服务器验证及消息回复")
+@Tag(name = "公众号服务器验证及消息回复")
 public class ChannelOaCallBackController {
 
     @Resource
@@ -19,7 +19,7 @@ public class ChannelOaCallBackController {
 
     @NotLogin
     @GetMapping(produces = "text/plain;charset=utf-8")
-    @ApiOperation(value="公众号服务器地址验证")
+    @Operation(summary="公众号服务器地址验证")
     public String authGet(@RequestParam(name = "signature", required = false) String signature,
                           @RequestParam(name = "timestamp", required = false) String timestamp,
                           @RequestParam(name = "nonce", required = false) String nonce,
@@ -30,7 +30,7 @@ public class ChannelOaCallBackController {
 
     @NotLogin
     @PostMapping(produces = "application/xml; charset=UTF-8")
-    @ApiOperation(value="公众号消息回复")
+    @Operation(summary="公众号消息回复")
     public String post(@RequestBody String requestBody,
                        @RequestParam("signature") String signature,
                        @RequestParam("timestamp") String timestamp,

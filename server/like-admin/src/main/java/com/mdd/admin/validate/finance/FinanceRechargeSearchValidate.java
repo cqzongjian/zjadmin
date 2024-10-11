@@ -1,33 +1,33 @@
 package com.mdd.admin.validate.finance;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 import java.io.Serializable;
 
 @Data
-@ApiModel("充值订单搜索参数")
+@Schema(description = "充值订单搜索参数")
 public class FinanceRechargeSearchValidate implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @ApiModelProperty(value = "订单编号")
+    @Schema(description="订单编号")
     private String sn;
 
-    @ApiModelProperty(value = "关键词")
+    @Schema(description="关键词")
     private String keyword;
 
-    @ApiModelProperty(value = "支付方式")
+    @Schema(description="支付方式")
     private Integer payWay;
 
-    @ApiModelProperty(value = "支付状态")
+    @Schema(description="支付状态")
     private Integer payStatus;
 
-    @ApiModelProperty(value = "开始时间")
+    @Schema(description="开始时间")
     private Integer startTime;
 
-    @ApiModelProperty(value = "结束时间")
+    @Schema(description="结束时间")
     private Integer endTime;
 
 }

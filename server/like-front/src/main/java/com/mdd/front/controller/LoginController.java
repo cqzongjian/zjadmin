@@ -7,8 +7,8 @@ import com.mdd.front.service.ILoginService;
 import com.mdd.front.validate.login.*;
 import com.mdd.front.vo.login.LoginUrlsVo;
 import com.mdd.front.vo.login.LoginTokenVo;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -20,7 +20,7 @@ import javax.validation.constraints.NotNull;
 @Slf4j
 @RestController
 @RequestMapping("/api/login")
-@Api(tags = "登录管理")
+@Tag(name = "登录管理")
 public class LoginController {
 
     @Resource
@@ -28,7 +28,7 @@ public class LoginController {
 
     @NotLogin
     @PostMapping("/register")
-    @ApiOperation(value="注册账号")
+    @Operation(summary="注册账号")
     public AjaxResult<Object> register(@Validated @RequestBody RegisterValidate registerValidate) {
         Integer terminal = LikeFrontThreadLocal.getTerminal();
         String username = registerValidate.getUsername();
@@ -40,7 +40,7 @@ public class LoginController {
 
     @NotLogin
     @PostMapping("/accountLogin")
-    @ApiOperation(value="账号登录")
+    @Operation(summary="账号登录")
     public AjaxResult<LoginTokenVo> accountLogin(@Validated @RequestBody LoginPwdValidate loginPwdValidate) {
         Integer terminal = LikeFrontThreadLocal.getTerminal();
         String username = loginPwdValidate.getUsername();
@@ -52,7 +52,7 @@ public class LoginController {
 
     @NotLogin
     @PostMapping("/mobileLogin")
-    @ApiOperation(value="手机登录")
+    @Operation(summary="手机登录")
     public AjaxResult<LoginTokenVo> mobileLogin(@Validated @RequestBody LoginPhoneValidate loginPhoneValidate) {
         Integer terminal = LikeFrontThreadLocal.getTerminal();
         String mobile = loginPhoneValidate.getMobile();
@@ -64,7 +64,7 @@ public class LoginController {
 
     @NotLogin
     @PostMapping("/mnpLogin")
-    @ApiOperation(value="微信登录")
+    @Operation(summary="微信登录")
     public AjaxResult<LoginTokenVo> mnpLogin(@Validated @RequestBody LoginCodeValidate loginCodeValidate) {
         Integer terminal = LikeFrontThreadLocal.getTerminal();
         String code = loginCodeValidate.getCode();
@@ -75,7 +75,7 @@ public class LoginController {
 
     @NotLogin
     @PostMapping("/oaLogin")
-    @ApiOperation(value="公众号登录")
+    @Operation(summary="公众号登录")
     public AjaxResult<LoginTokenVo> oaLogin(@Validated @RequestBody LoginCodeValidate loginCodeValidate) {
         Integer terminal = LikeFrontThreadLocal.getTerminal();
         String code = loginCodeValidate.getCode();
@@ -86,7 +86,7 @@ public class LoginController {
 
     @NotLogin
     @GetMapping("/oaCodeUrl")
-    @ApiOperation(value="公众号链接")
+    @Operation(summary="公众号链接")
     public AjaxResult<LoginUrlsVo> oaCodeUrl(@Validated @NotNull() @RequestParam("url") String url) {
         LoginUrlsVo vo = new LoginUrlsVo();
         vo.setUrl(iLoginService.oaCodeUrl(url));
@@ -95,7 +95,7 @@ public class LoginController {
 
     @NotLogin
     @GetMapping("/scanCodeUrl")
-    @ApiOperation(value="PC扫码链接")
+    @Operation(summary="PC扫码链接")
     public AjaxResult<LoginUrlsVo> scanCodeUrl(@Validated @NotNull() @RequestParam("url") String url, HttpSession session) {
         String qrcodeUrl = iLoginService.scanCodeUrl(url, session);
         LoginUrlsVo vo = new LoginUrlsVo();
@@ -105,7 +105,7 @@ public class LoginController {
 
     @NotLogin
     @PostMapping("/scanLogin")
-    @ApiOperation(value="PC扫码登录")
+    @Operation(summary="PC扫码登录")
     public AjaxResult<Object> scanLogin(@Validated @RequestBody LoginScanValidate loginScanValidate, HttpSession session) {
         Integer terminal = LikeFrontThreadLocal.getTerminal();
         String code = loginScanValidate.getCode();

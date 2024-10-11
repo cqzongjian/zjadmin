@@ -13,8 +13,8 @@ import com.mdd.front.vo.article.ArticleCateVo;
 import com.mdd.front.vo.article.ArticleCollectVo;
 import com.mdd.front.vo.article.ArticleDetailVo;
 import com.mdd.front.vo.article.ArticleListedVo;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,7 +23,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/article")
-@Api(tags = "文章管理")
+@Tag(name = "文章管理")
 public class ArticleController {
 
     @Resource
@@ -31,7 +31,7 @@ public class ArticleController {
 
     @NotLogin
     @GetMapping("/category")
-    @ApiOperation(value="文章分类")
+    @Operation(summary="文章分类")
     public AjaxResult<List<ArticleCateVo>> category() {
         List<ArticleCateVo> list = iArticleService.category();
         return AjaxResult.success(list);
@@ -39,7 +39,7 @@ public class ArticleController {
 
     @NotLogin
     @GetMapping("/list")
-    @ApiOperation(value="文章列表")
+    @Operation(summary="文章列表")
     public AjaxResult<PageResult<ArticleListedVo>> list(@Validated PageValidate pageValidate,
                                                         @Validated ArticleSearchValidate searchValidate) {
         Integer userId = LikeFrontThreadLocal.getUserId();
@@ -50,7 +50,7 @@ public class ArticleController {
 
     @NotLogin
     @GetMapping("/detail")
-    @ApiOperation(value="文章详情")
+    @Operation(summary="文章详情")
     public AjaxResult<ArticleDetailVo> detail(@Validated @IDMust() @RequestParam("id") Integer id) {
         Integer userId = LikeFrontThreadLocal.getUserId();
 
@@ -59,7 +59,7 @@ public class ArticleController {
     }
 
     @GetMapping("/collectList")
-    @ApiOperation(value="收藏列表")
+    @Operation(summary="收藏列表")
     public AjaxResult<PageResult<ArticleCollectVo>> collect(@Validated PageValidate pageValidate) {
         Integer userId = LikeFrontThreadLocal.getUserId();
 
@@ -68,7 +68,7 @@ public class ArticleController {
     }
 
     @PostMapping("/collectAdd")
-    @ApiOperation(value="收藏加入")
+    @Operation(summary="收藏加入")
     public AjaxResult<Object> addCollect(@Validated @RequestBody ArticleCollectValidate collectValidate) {
         Integer articleId = collectValidate.getArticleId();
         Integer userId = LikeFrontThreadLocal.getUserId();
@@ -78,7 +78,7 @@ public class ArticleController {
     }
 
     @PostMapping("/collectCancel")
-    @ApiOperation(value="收藏取消")
+    @Operation(summary="收藏取消")
     public AjaxResult<Object> cancelCollect(@Validated @RequestBody ArticleCollectValidate collectValidate) {
         Integer articleId = collectValidate.getArticleId();
         Integer userId = LikeFrontThreadLocal.getUserId();

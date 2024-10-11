@@ -1,55 +1,55 @@
 package com.mdd.admin.vo.system;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 import java.io.Serializable;
 import java.util.List;
 
 @Data
-@ApiModel("管理员详情Vo")
+@Schema(description = "管理员详情Vo")
 public class SystemAuthAdminDetailVo implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @ApiModelProperty(value = "主键")
+    @Schema(description="主键")
     private Integer id;
 
-    @ApiModelProperty(value = "角色ID")
+    @Schema(description="角色ID")
     private List<Integer> roleIds;
 
-    @ApiModelProperty(value = "部门ID")
+    @Schema(description="部门ID")
     private List<Integer> deptIds;
 
-    @ApiModelProperty(value = "岗位ID")
+    @Schema(description="岗位ID")
     private List<Integer> postIds;
 
-    @ApiModelProperty(value = "账号")
+    @Schema(description="账号")
     private String username;
 
-    @ApiModelProperty(value = "昵称")
+    @Schema(description="昵称")
     private String nickname;
 
-    @ApiModelProperty(value = "头像")
+    @Schema(description="头像")
     private String avatar;
 
-    @ApiModelProperty(value = "多端登录: [0=否, 1=是]")
+    @Schema(description="多端登录: [0=否, 1=是]")
     private Integer isMultipoint;
 
-    @ApiModelProperty(value = "是否禁用: [0=否, 1=是]")
+    @Schema(description="是否禁用: [0=否, 1=是]")
     private Integer isDisable;
 
-    @ApiModelProperty(value = "最后登录IP")
+    @Schema(description="最后登录IP")
     private String lastLoginIp;
 
-    @ApiModelProperty(value = "最后登录时间")
+    @Schema(description="最后登录时间")
     private String lastLoginTime;
 
-    @ApiModelProperty(value = "创建时间")
+    @Schema(description="创建时间")
     private String createTime;
 
-    @ApiModelProperty(value = "更新时间")
+    @Schema(description="更新时间")
     private String updateTime;
 
 }

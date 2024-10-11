@@ -1,60 +1,60 @@
 package com.mdd.admin.vo.system;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 import java.io.Serializable;
 
 @Data
-@ApiModel("操作日志Vo")
+@Schema(description = "操作日志Vo")
 public class SystemLogOperateVo implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @ApiModelProperty(value = "主键")
+    @Schema(description="主键")
     private Integer id;
 
-    @ApiModelProperty(value = "用户账号")
+    @Schema(description="用户账号")
     private String username;
 
-    @ApiModelProperty(value = "用户昵称")
+    @Schema(description="用户昵称")
     private String nickname;
 
-    @ApiModelProperty(value = "请求类型: GET/POST/PUT")
+    @Schema(description="请求类型: GET/POST/PUT")
     private String type;
 
-    @ApiModelProperty(value = "操作标题")
+    @Schema(description="操作标题")
     private String title;
 
-    @ApiModelProperty(value = "请求方式")
+    @Schema(description="请求方式")
     private String method;
 
-    @ApiModelProperty(value = "请求IP")
+    @Schema(description="请求IP")
     private String ip;
 
-    @ApiModelProperty(value = "请求地址")
+    @Schema(description="请求地址")
     private String url;
 
-    @ApiModelProperty(value = "请求参数")
+    @Schema(description="请求参数")
     private String args;
 
-    @ApiModelProperty(value = "错误信息")
+    @Schema(description="错误信息")
     private String error;
 
-    @ApiModelProperty(value = "执行状态: [1=成功, 2=失败]")
+    @Schema(description="执行状态: [1=成功, 2=失败]")
     private Integer status;
 
-    @ApiModelProperty(value = "执行耗时")
+    @Schema(description="执行耗时")
     private String taskTime;
 
-    @ApiModelProperty(value = "开始时间")
+    @Schema(description="开始时间")
     private String startTime;
 
-    @ApiModelProperty(value = "结束时间")
+    @Schema(description="结束时间")
     private String endTime;
 
-    @ApiModelProperty(value = "创建时间")
+    @Schema(description="创建时间")
     private String createTime;
 
 }

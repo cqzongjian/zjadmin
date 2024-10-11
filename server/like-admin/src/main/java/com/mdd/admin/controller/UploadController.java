@@ -10,8 +10,8 @@ import com.mdd.common.exception.OperateException;
 import com.mdd.common.plugin.storage.StorageDriver;
 import com.mdd.common.plugin.storage.UploadFilesVo;
 import com.mdd.common.util.StringUtils;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,7 +25,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("api/upload")
-@Api(tags = "上传文件管理")
+@Tag(name = "上传文件管理")
 public class UploadController {
 
     @Resource
@@ -33,7 +33,7 @@ public class UploadController {
 
     @Log(title = "上传图片", requestType = RequestType.File)
     @PostMapping("/image")
-    @ApiOperation(value="上传图片")
+    @Operation(summary="上传图片")
     public AjaxResult<UploadFilesVo> image(HttpServletRequest request) {
         MultipartFile multipartFile;
         try {
@@ -66,7 +66,7 @@ public class UploadController {
 
     @Log(title = "上传视频", requestType = RequestType.File)
     @PostMapping("/video")
-    @ApiOperation(value="上传视频")
+    @Operation(summary="上传视频")
     public AjaxResult<UploadFilesVo> video(HttpServletRequest request) {
         MultipartFile multipartFile;
         try {

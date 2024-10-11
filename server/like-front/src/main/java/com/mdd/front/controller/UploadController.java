@@ -7,8 +7,8 @@ import com.mdd.common.exception.OperateException;
 import com.mdd.common.plugin.storage.StorageDriver;
 import com.mdd.common.plugin.storage.UploadFilesVo;
 import com.mdd.common.util.StringUtils;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,12 +19,12 @@ import jakarta.servlet.http.HttpServletRequest;
 
 @RestController
 @RequestMapping("/api/upload")
-@Api(tags = "上传管理")
+@Tag(name = "上传管理")
 public class UploadController {
 
     @NotLogin
     @PostMapping("/image")
-    @ApiOperation(value="上传图片")
+    @Operation(summary="上传图片")
     public AjaxResult<UploadFilesVo> image(HttpServletRequest request) {
         MultipartFile multipartFile;
         try {

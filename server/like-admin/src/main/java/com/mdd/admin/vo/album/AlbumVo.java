@@ -1,42 +1,42 @@
 package com.mdd.admin.vo.album;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 import java.io.Serializable;
 
 @Data
-@ApiModel("相册Vo")
+@Schema(description = "相册Vo")
 public class AlbumVo implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @ApiModelProperty(value = "主键")
+    @Schema(description="主键")
     private Integer id;
 
-    @ApiModelProperty(value = "所属类目")
+    @Schema(description="所属类目")
     private Integer cid;
 
-    @ApiModelProperty(value = "文件名称")
+    @Schema(description="文件名称")
     private String name;
 
-    @ApiModelProperty(value = "相对路径")
+    @Schema(description="相对路径")
     private String path;
 
-    @ApiModelProperty(value = "文件路径")
+    @Schema(description="文件路径")
     private String uri;
 
-    @ApiModelProperty(value = "文件扩展")
+    @Schema(description="文件扩展")
     private String ext;
 
-    @ApiModelProperty(value = "文件大小")
+    @Schema(description="文件大小")
     private String size;
 
-    @ApiModelProperty(value = "创建时间")
+    @Schema(description="创建时间")
     private String createTime;
 
-    @ApiModelProperty(value = "更新时间")
+    @Schema(description="更新时间")
     private String updateTime;
 
 }

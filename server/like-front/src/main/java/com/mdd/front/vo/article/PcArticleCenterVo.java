@@ -1,22 +1,22 @@
 package com.mdd.front.vo.article;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 import java.io.Serializable;
 
 @Data
-@ApiModel(value = "PC资讯中心Vo")
+@Schema(description = "PC资讯中心Vo")
 public class PcArticleCenterVo implements Serializable {
 
-    @ApiModelProperty(value = "ID")
+    @Schema(description="ID")
     private Integer id;
 
-    @ApiModelProperty(value = "名称")
+    @Schema(description="名称")
     private String name;
 
-    @ApiModelProperty(value = "文章")
+    @Schema(description="文章")
     private Object article;
 
 }

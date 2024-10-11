@@ -1,24 +1,24 @@
 package com.mdd.admin.vo.channel;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 import java.io.Serializable;
 
 @Data
-@ApiModel("H5渠道Vo")
+@Schema(description = "H5渠道Vo")
 public class ChannelH5Vo implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @ApiModelProperty(value = "是否关闭")
+    @Schema(description="是否关闭")
     private Integer status;
 
-    @ApiModelProperty(value = "关闭类型")
+    @Schema(description="关闭类型")
     private Integer close;
 
-    @ApiModelProperty(value = "关闭访问")
+    @Schema(description="关闭访问")
     private String url;
 
 }

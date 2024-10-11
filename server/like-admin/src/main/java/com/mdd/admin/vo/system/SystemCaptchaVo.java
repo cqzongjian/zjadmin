@@ -1,17 +1,17 @@
 package com.mdd.admin.vo.system;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 @Data
-@ApiModel("验证码")
+@Schema(description = "验证码")
 public class SystemCaptchaVo {
 
-    @ApiModelProperty(value = "标识")
+    @Schema(description="标识")
     private String uuid;
 
-    @ApiModelProperty(value = "图片")
+    @Schema(description="图片")
     private String img;
 
 }

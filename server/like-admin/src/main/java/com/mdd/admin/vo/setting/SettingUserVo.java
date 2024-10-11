@@ -1,18 +1,18 @@
 package com.mdd.admin.vo.setting;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 import java.io.Serializable;
 
 @Data
-@ApiModel("用户设置Vo")
+@Schema(description = "用户设置Vo")
 public class SettingUserVo implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @ApiModelProperty(value = "默认头像")
+    @Schema(description="默认头像")
     private String defaultAvatar;
 
 }

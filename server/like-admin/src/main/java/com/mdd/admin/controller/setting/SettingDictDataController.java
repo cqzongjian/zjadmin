@@ -13,8 +13,8 @@ import com.mdd.common.core.AjaxResult;
 import com.mdd.common.core.PageResult;
 import com.mdd.common.util.StringUtils;
 import com.mdd.common.validator.annotation.IDMust;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,7 +24,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("api/setting/dict/data")
-@Api(tags = "配置字典数据")
+@Tag(name = "配置字典数据")
 public class SettingDictDataController {
 
     @Resource
@@ -32,7 +32,7 @@ public class SettingDictDataController {
 
     @NotPower
     @GetMapping("/all")
-    @ApiOperation(value="字典数据所有")
+    @Operation(summary="字典数据所有")
     public AjaxResult<List<SettingDictDataVo>> all(@RequestParam Map<String, String> params) {
         Assert.isFalse(StringUtils.isEmpty(params.get("dictType")), "dictType缺失");
         List<SettingDictDataVo> list = iSettingDictDataService.all(params);
@@ -40,7 +40,7 @@ public class SettingDictDataController {
     }
 
     @GetMapping("/list")
-    @ApiOperation(value="字典数据列表")
+    @Operation(summary="字典数据列表")
     public AjaxResult<PageResult<SettingDictDataVo>> list(@Validated PageValidate pageValidate,
                                                           @RequestParam Map<String, String> params) {
         Assert.isFalse(StringUtils.isEmpty(params.get("dictType")), "dictType缺失");
@@ -49,7 +49,7 @@ public class SettingDictDataController {
     }
 
     @GetMapping("/detail")
-    @ApiOperation(value="字典数据详情")
+    @Operation(summary="字典数据详情")
     public AjaxResult<SettingDictDataVo> detail(@Validated @IDMust() @RequestParam("id") Integer id) {
         SettingDictDataVo vo = iSettingDictDataService.detail(id);
         return AjaxResult.success(vo);
@@ -57,7 +57,7 @@ public class SettingDictDataController {
 
     @Log(title = "字典数据新增")
     @PostMapping("/add")
-    @ApiOperation(value="字典数据新增")
+    @Operation(summary="字典数据新增")
     public AjaxResult<Object> add(@Validated @RequestBody DictDataCreateValidate createValidate) {
         iSettingDictDataService.add(createValidate);
         return AjaxResult.success();
@@ -65,7 +65,7 @@ public class SettingDictDataController {
 
     @Log(title = "字典数据编辑")
     @PostMapping("/edit")
-    @ApiOperation(value="字典数据编辑")
+    @Operation(summary="字典数据编辑")
     public AjaxResult<Object> edit(@Validated @RequestBody DictDataUpdateValidate updateValidate) {
         iSettingDictDataService.edit(updateValidate);
         return AjaxResult.success();
@@ -73,7 +73,7 @@ public class SettingDictDataController {
 
     @Log(title = "字典数据删除")
     @PostMapping("/del")
-    @ApiOperation(value="字典数据删除")
+    @Operation(summary="字典数据删除")
     public AjaxResult<Object> del(@Validated @RequestBody IdsValidate idsValidate) {
         iSettingDictDataService.del(idsValidate.getIds());
         return AjaxResult.success();

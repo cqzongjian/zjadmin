@@ -1,24 +1,24 @@
 package com.mdd.admin.validate.user;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 import java.io.Serializable;
 
 @Data
-@ApiModel("用户更新参数")
+@Schema(description = "用户更新参数")
 public class UserUpdateValidate implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @ApiModelProperty(value = "id")
+    @Schema(description="id")
     private Integer id;
 
-    @ApiModelProperty(value = "字段")
+    @Schema(description="字段")
     private String field;
 
-    @ApiModelProperty(value = "值")
+    @Schema(description="值")
     private String value;
 
 }

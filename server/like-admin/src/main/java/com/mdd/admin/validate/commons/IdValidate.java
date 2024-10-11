@@ -1,20 +1,20 @@
 package com.mdd.admin.validate.commons;
 
 import com.mdd.common.validator.annotation.IDMust;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 import java.io.Serializable;
 
 @Data
-@ApiModel("ID参数")
+@Schema(description = "ID参数")
 public class IdValidate implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @IDMust(message = "id参数必传且需大于0")
-    @ApiModelProperty(value = "ID", required = true)
+    @Schema(description="ID", required = true)
     private Integer id;
 
 }

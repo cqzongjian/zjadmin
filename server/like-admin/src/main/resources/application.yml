@@ -89,3 +89,17 @@ sa-token:
   token-style: random-64  # token生成的风格
   is-print: false         # 打印版本字符画
   is-log: false           # 是否输出操作日志
+
+# Springdoc配置
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
+    tags-sorter: alpha
+  group-configs:
+    - group: 'default'
+      display-name: '后台接口文档'
+      paths-to-match: '/**'
+      packages-to-scan: com.mdd.admin.controller
